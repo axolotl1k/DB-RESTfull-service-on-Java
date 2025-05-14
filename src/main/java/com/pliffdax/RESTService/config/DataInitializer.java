@@ -1,4 +1,4 @@
-package com.pliffdax.RESTService;
+package com.pliffdax.RESTService.config;
 
 import com.pliffdax.RESTService.entity.Member;
 import com.pliffdax.RESTService.entity.Role;
