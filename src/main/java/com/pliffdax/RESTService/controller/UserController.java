@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
@@ -46,6 +48,11 @@ public class UserController {
                                             @RequestParam String role) {
         userService.addUserRole(adminId, id, role);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/{id}/roles")
+    public ResponseEntity<List<String>> getUserRoles(@PathVariable Integer id) {
+        return ResponseEntity.ok(userService.getUserRoleNames(id));
     }
 
     @DeleteMapping("/{id}/roles")

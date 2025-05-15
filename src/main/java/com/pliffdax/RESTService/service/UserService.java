@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -96,6 +97,13 @@ public class UserService {
         User user = userRepo.findById(userId).orElseThrow(() -> new UserNotFoundException("User not found."));
         Role role = roleRepo.findByName(newRole).orElseThrow(() -> new RoleNotFoundException("Role not found."));
         assignRoleToUser(user, role);
+    }
+
+    public List<String> getUserRoleNames(Integer userId) {
+        if (!userRepo.existsById(userId)) {
+            throw new UserNotFoundException("User not found");
+        }
+        return memberRepo.findRoleNamesByUserId(userId);
     }
 
     public void deleteUserRole(Integer adminId, Integer userId, String oldRole) {
