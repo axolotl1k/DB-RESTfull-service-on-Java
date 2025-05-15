@@ -50,10 +50,11 @@
     ```bash
    mvn spring-boot:run
    ```
-   
+
 ### Структура репозиторію
 
-
+- [`src/`](https://github.com/axolotl1k/DB-RESTfull-service-on-Java/tree/master/src) — основний вихідний код проєкту (Java-класи, ресурси, тести)
+- [`docs/`](https://github.com/axolotl1k/DB-RESTfull-service-on-Java/tree/master/docs) — додаткова документація, включно з прикладами тестування REST API через Postman, скріншотами та інструкціями
 
 ---
 
