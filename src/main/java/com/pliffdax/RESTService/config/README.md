@@ -8,7 +8,7 @@
 
 ## Що тут є:
 
-- `DataInitializer.java`  
+- [`DataInitializer.java`](https://github.com/axolotl1k/DB-RESTfull-service-on-Java/blob/master/src/main/java/com/pliffdax/RESTService/config/DataInitializer.java)  
   Клас, який автоматично створює початкові дані в базі даних при старті застосунку.
     - Додає ролі `“USER”` та `“ADMIN”`, якщо їх ще немає.
     - Створює адміністратора (користувача з ім’ям “admin”), якщо він відсутній, та призначає йому роль “ADMIN”.
