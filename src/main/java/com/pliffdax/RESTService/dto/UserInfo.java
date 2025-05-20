@@ -1,6 +1,6 @@
 package com.pliffdax.RESTService.dto;
 
-public record LoginResponse(
+public record UserInfo(
         Integer id,
         String username,
         String email,

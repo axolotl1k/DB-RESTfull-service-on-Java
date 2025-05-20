@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -29,6 +30,17 @@ public class UserService {
     private final MemberRepository memberRepo;
 
     private final RoleRepository roleRepo;
+
+    public List<UserInfo> getAllUsers() {
+        return userRepo.findAll().stream()
+                .map(user -> new UserInfo(
+                        user.getId(),
+                        user.getName(),
+                        user.getEmail(),
+                        user.getAvatar(),
+                        user.getStatus()
+                )).collect(Collectors.toList());
+    }
 
     @Transactional
     public void registerNewUser(RegisterRequest userData) {
@@ -47,7 +59,7 @@ public class UserService {
         assignRoleToUser(user, role);
     }
 
-    public LoginResponse loginUser(LoginRequest loginRequest) {
+    public UserInfo loginUser(LoginRequest loginRequest) {
         User user = userRepo.findByName(loginRequest.username())
                 .orElseThrow(() -> new InvalidUsernameException("No user with this name exists."));
         if (!loginRequest.password().equals(user.getPassword())) {
@@ -56,7 +68,7 @@ public class UserService {
         if (banRepo.existsByUserIdAndUntilDateAfter(user.getId(), LocalDateTime.now())) {
             throw new UserBannedException("User banned!");
         }
-        return new LoginResponse(user.getId(),
+        return new UserInfo(user.getId(),
                 user.getName(),
                 user.getEmail(),
                 user.getAvatar(),
@@ -123,7 +135,7 @@ public class UserService {
         }
         User user = userRepo.findByName(request.username()).orElseThrow(() -> new UserNotFoundException("User not found."));
         if (banRepo.existsByUserIdAndUntilDateAfter(user.getId(), LocalDateTime.now())) {
-            throw new UserBannedException("User already banned!");
+            throw new InvalidBanException("User already banned!");
         }
 
         Ban ban = new Ban();
@@ -139,7 +151,7 @@ public class UserService {
         }
         User user = userRepo.findById(userId).orElseThrow(() -> new UserNotFoundException("User not found."));
         Ban ban = banRepo.findByUserIdAndUntilDateAfter(user.getId(), LocalDateTime.now())
-                .orElseThrow(() -> new UserBannedException("User already unbanned!"));
+                .orElseThrow(() -> new InvalidBanException("User already unbanned!"));
         ban.setUntilDate(LocalDateTime.now().minusSeconds(1));
         banRepo.save(ban);
     }
