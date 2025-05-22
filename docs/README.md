@@ -19,7 +19,11 @@
 
 ## Опис ендпоїнтів та приклади запитів
 
-### 1. Реєстрація користувача
+### 1. Отримати всіх користувачів
+
+`GET /api/users/all`
+
+### 2. Реєстрація користувача
 `POST /api/users/register`
 
 ```json
@@ -30,7 +34,16 @@
 }
 ```
 
-### 2. Логін користувача
+**Відповідь:**
+
+```json
+{
+  "code": "201",
+  "message": "User registered successfully"
+}
+```
+
+### 3. Логін користувача
 `POST /api/users/login`
 
 ```json
@@ -40,7 +53,23 @@
 }
 ```
 
-### 3. Редагування користувача
+**Відповідь:**
+
+```json
+{
+   "code": "200",
+   "message": "Login successful",
+   "data": {
+      "id": 1,
+      "name": "newuser",
+      "email": "newuser@email.com",
+      "avatar": "images/user.png",
+      "status": "Active"
+   }
+}
+```
+
+### 4. Редагування користувача
 `PUT /api/users/{id}?editorId={editorId}`
 
 ```json
@@ -53,19 +82,65 @@
 }
 ```
 
-### 4. Видалення користувача
+**Відповідь:**
+
+```json
+{
+   "code": "200",
+   "message": "User edited successfully"
+}
+```
+
+### 5. Видалення користувача
 `DELETE /api/users/{id}?editorId={editorId}`
 
-### 5. Додати роль користувачу
+**Відповідь:**
+
+```json
+{
+   "code": "200",
+   "message": "User deleted successfully"
+}
+```
+
+### 6. Додати роль користувачу
 `POST /api/users/{id}/roles?adminId={adminId}&role={role}`
 
-### 6. Отримати ролі користувача
+**Відповідь:**
+
+```json
+{
+   "code": "200",
+   "message": "Role added to user"
+}
+```
+
+### 7. Отримати ролі користувача
 `GET /api/users/{id}/roles`
 
-### 7. Видалити роль користувача
+**Відповідь:**
+
+```json
+{
+   "code": "200",
+   "message": "User roles retrieved",
+   "data": ["USER", "ADMIN"]
+}
+```
+
+### 8. Видалити роль користувача
 `DELETE /api/users/{id}/roles?adminId={adminId}&role={role}`
 
-### 8. Забанити користувача
+**Відповідь:**
+
+```json
+{
+   "code": "200",
+   "message": "Role removed from user"
+}
+```
+
+### 9. Забанити користувача
 `POST /api/users/ban?adminId={adminId}`
 
 ```json
@@ -76,5 +151,23 @@
 }
 ```
 
-### 9. Розбанити користувача
+**Відповідь:**
+
+```json
+{
+   "code": "200",
+   "message": "User banned"
+}
+```
+
+### 10. Розбанити користувача
 `POST /api/users/unban?adminId={adminId}&userId={userId}`
+
+**Відповідь:**
+
+```json
+{
+   "code": "200",
+   "message": "User unbanned"
+}
+```

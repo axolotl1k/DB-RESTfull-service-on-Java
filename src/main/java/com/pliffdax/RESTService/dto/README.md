@@ -15,11 +15,14 @@
 
 ## Основні DTO в проекті:
 
-- [`RegisterRequest.java`](https://github.com/axolotl1k/DB-RESTfull-service-on-Java/blob/master/src/main/java/com/pliffdax/RESTService/dto/RegisterRequest.java) — дані для реєстрації користувача.
-- [`LoginRequest.java`](https://github.com/axolotl1k/DB-RESTfull-service-on-Java/blob/master/src/main/java/com/pliffdax/RESTService/dto/LoginRequest.java) — дані для входу в систему.
-- [`LoginResponse.java`](https://github.com/axolotl1k/DB-RESTfull-service-on-Java/blob/master/src/main/java/com/pliffdax/RESTService/dto/LoginResponse.java) — відповідь сервера після успішного входу.
+- [`ApiResponse.java`](https://github.com/axolotl1k/DB-RESTfull-service-on-Java/blob/master/src/main/java/com/pliffdax/RESTService/dto/ApiResponse.java) — стандартний формат відповіді API без додаткових даних.
+- [`ApiResponseWithData.java`](https://github.com/axolotl1k/DB-RESTfull-service-on-Java/blob/master/src/main/java/com/pliffdax/RESTService/dto/ApiResponseWithData.java) — стандартний формат відповіді API з додатковими даними (наприклад, об'єкт користувача).
+- [`BanUserRequest.java`](https://github.com/axolotl1k/DB-RESTfull-service-on-Java/blob/master/src/main/java/com/pliffdax/RESTService/dto/BanUserRequest.java) — дані для запиту на блокування користувача.
 - [`EditUserDataRequest.java`](https://github.com/axolotl1k/DB-RESTfull-service-on-Java/blob/master/src/main/java/com/pliffdax/RESTService/dto/EditUserDataRequest.java) — зміна даних профілю користувача.
-- [`BanUserRequest.java`](https://github.com/axolotl1k/DB-RESTfull-service-on-Java/blob/master/src/main/java/com/pliffdax/RESTService/dto/BanUserRequest.java) — запит на блокування користувача.
+- [`LoginRequest.java`](https://github.com/axolotl1k/DB-RESTfull-service-on-Java/blob/master/src/main/java/com/pliffdax/RESTService/dto/LoginRequest.java) — дані для входу в систему.
+- [`RegisterRequest.java`](https://github.com/axolotl1k/DB-RESTfull-service-on-Java/blob/master/src/main/java/com/pliffdax/RESTService/dto/RegisterRequest.java) — дані для реєстрації користувача.
+- [`UserInfo.java`](https://github.com/axolotl1k/DB-RESTfull-service-on-Java/blob/master/src/main/java/com/pliffdax/RESTService/dto/UserInfo.java) — DTO для передачі інформації про користувача (наприклад, у відповіді на запит).
+
 
 ---
 
