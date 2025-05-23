@@ -62,6 +62,7 @@
 
 **axolotl1k**
 - GitHub: [@axolotl1k](https://github.com/axolotl1k)
+- Telegram: [@a_x_o_l_o_t_l](https://t.me/a_x_o_l_o_t_l)
 
 **Pliffdax**
 - GitHub: [@luckyscammer](https://github.com/your-teammate)
