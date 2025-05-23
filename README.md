@@ -18,7 +18,7 @@
 - **Spring Data JPA**
 - **MySQL**
 - **Maven**
-- **Postman** (для тестування API)
+- **Postman** чи **Swagger** (для тестування API)
 
 ---
 
